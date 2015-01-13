@@ -1,17 +1,17 @@
 package fr.youngagain;
 
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Set;
 
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-@ApplicationPath("/")
-public class YoungAgain extends Application{
-    @Override
-    public Set<Class<?>> getClasses() {
-    	Set<Class<?>> s = new HashSet<Class<?>>();
-    	s.add(Login.class);
-    	return s;
-    }
+@WebServlet("/")
+public class YoungAgain extends HttpServlet {
+	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		
+	}
 }
