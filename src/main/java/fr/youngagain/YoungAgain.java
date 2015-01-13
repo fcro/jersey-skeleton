@@ -6,7 +6,7 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-@ApplicationPath("/youngagain/")
+@ApplicationPath("/")
 public class YoungAgain extends Application{
     @Override
     public Set<Class<?>> getClasses() {
