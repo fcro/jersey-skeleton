@@ -1,5 +1,5 @@
 function connect(login) {
-	$.getJSON("youngagain/login/" + login, function(data) {
+	$.getJSON("youngagain/login/" + login,  function(data) {
 		dispConnect(data);
 	});
 }
