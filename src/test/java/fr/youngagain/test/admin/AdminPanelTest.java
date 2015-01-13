@@ -1,4 +1,4 @@
-package admin;
+package fr.youngagain.test.admin;
 
 import static org.junit.Assert.*;
 
