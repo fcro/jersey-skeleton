@@ -1,3 +1,14 @@
+function connect(login) {
+	$.getJSON("youngagain/login/" + login, function(data) {
+		dispConnect(data);
+	});
+}
+
+function dispConnect(data) {
+	console.log(data);
+	$("#reponse").html(data.login + " " + data.password);
+}
+
 function getUser(name) {
 	$.getJSON("v1/user/" + name, function(data) {
 		afficheUser(data)
