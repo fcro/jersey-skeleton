@@ -1,0 +1,27 @@
+01-14 15:48:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS USER(FIRSTNAME TEXT NOT NULL, LASTNAME TEXT NOT NULL, LOGIN TEXT PRIMARY KEY, PASWD VARCHAR(12)) NOT[*] NULL, ROLE VARCHAR(5); "; SQL statement:
+CREATE TABLE IF NOT EXISTS user(firstName TEXT NOT NULL, lastName TEXT NOT NULL, login TEXT PRIMARY KEY, paswd VARCHAR(12)) NOT NULL, role VARCHAR(5); [42000-184]
+01-14 15:59:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+INSERT INTO user VALUES('moi', 'moi', 'moi', 'moi', 'moi'); [42102-184]
+01-14 16:01:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+INSERT INTO user VALUES('moi', 'moi', 'moi', 'moi', 'moi'); [42102-184]
+01-14 16:03:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+INSERT INTO user VALUES('moi', 'moi', 'moi', 'moi', 'moi'); [42102-184]
+01-14 16:04:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+INSERT INTO user VALUES('moi', 'moi', 'moi', 'moi', 'moi'); [42102-184]
+01-14 16:05:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+INSERT INTO user VALUES('moi', 'moi', 'moi', 'moi', 'moi'); [42102-184]
+01-14 16:05:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+INSERT INTO user VALUES('moi', 'moi', 'moi', 'moi', 'moi'); [42102-184]
+01-14 16:07:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+INSERT INTO user VALUES('moi', 'moi', 'moi', 'moi', 'moi'); [42102-184]
+01-14 16:07:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+INSERT INTO user VALUES('moi', 'moi', 'moi', 'moi', 'moi'); [42102-184]

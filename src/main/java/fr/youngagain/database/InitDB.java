@@ -8,11 +8,12 @@ public class InitDB {
 		Statement stmt = null;
 		try {
 			stmt = DBConnector.getConnection().createStatement();
-			String query = "CREATE TABLE USER"
-					+ "(LOGIN VARCHAR(20) PRIMARY KEY,"
-					+ "FIRSTNAME VARCHAR(50) NOT NULL,"
-					+ "LASTNAME VARCHAR(50) NOT NULL,"
-					+ "PASWD VARCHAR(12) NOT NULL);";
+			stmt.executeUpdate("DROP TABLE user;");
+			String query = "CREATE TABLE user"
+					+ "(login VARCHAR(20) PRIMARY KEY,"
+					+ "firstName VARCHAR(50) NOT NULL,"
+					+ "lastName VARCHAR(50) NOT NULL,"
+					+ "paswd VARCHAR(12) NOT NULL, role VARCHAR(5) NOT NULL);";
 			stmt.executeUpdate(query);
 		} catch (SQLException e) {
 			e.printStackTrace();
