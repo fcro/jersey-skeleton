@@ -178,5 +178,9 @@ public class ManageAccount {
 		return correct;
 		
 	}
+	
+	public static boolean blockAccount(String login){
+		return true;
+	}
 
 }
