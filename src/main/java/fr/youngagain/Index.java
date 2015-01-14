@@ -1,7 +1,6 @@
 package fr.youngagain;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -21,11 +20,7 @@ public class Index extends HttpServlet {
 		HttpSession session = req.getSession();
 		if (session.getAttribute("role") == null) {
 			PrintWriter out = res.getWriter();
-			BufferedReader br = new BufferedReader(new FileReader(
-					"./resources/includes/index/index.html"));
-			String buf;
-			while ((buf = br.readLine()) != null)
-				out.println(buf);
+			PHProcks.include(out, new File("./resources/includes/index/index.html"));
 			if (req.getParameter("bl") == "1")
 				out.println("<br><center>Erreur d'authentification</center></body></html>");
 		} else if (session.getAttribute("role").equals("admin")) {
