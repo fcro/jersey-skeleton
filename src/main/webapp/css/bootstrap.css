@@ -6345,3 +6345,20 @@ button.close {
   border : 2px solid #e58100;
   border-radius : 10px;
 }
+
+.news{
+  margin-top : 50px;
+}
+
+.btnNews{
+  float : right;
+}
+
+.news_txtArea{
+	margin-left:50px;
+}
+
+.news_btn{
+	margin-top:-150px;
+	margin-right: 50px;
+}
