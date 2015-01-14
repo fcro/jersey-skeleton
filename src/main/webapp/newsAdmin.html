@@ -26,6 +26,7 @@
 				<li class="accueil"><a href="pageAdmin.html">Accueil<span class="sr-only">(current)</span></a></li>
 			  </ul>
 			<!--<center><h1>Page d'Administration</h1></center>-->
+            </div>
 		  </div><!-- /.container-fluid -->
 		</nav>
 		
@@ -38,15 +39,15 @@
 				</p>
 			</form></div>
 			<div class="news_btn">
-				<form class="ajout" method="POST" action="/manageNews"
+				<form class="ajout" method="POST" action="/manageNews">
 					<input type="hidden" name="act" value="add"/>
 					<button type="submit" class="btn btn-warning btn-lg btnNews">Ajouter</button>
 				</form>	
-				<form class="update" method="POST" action="/manageNews"
+				<form class="update" method="POST" action="/manageNews">
 					<input type="hidden" name="act" value="up"/>
 					<button type="submit" class="btn btn-warning btn-lg btnNews">Modifier</button>
 				</form>
-				<form class="ajout" method="POST" action="/manageNews"
+				<form class="ajout" method="POST" action="/manageNews">
 					<input type="hidden" name="act" value="del"/>	
 					<button type="submit" class="btn btn-warning btn-lg btnNews">Supprimer</button>
 				</form>
