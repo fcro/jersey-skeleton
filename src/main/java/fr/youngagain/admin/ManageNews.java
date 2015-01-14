@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-@WebServlet ("/ManageNews")
+@WebServlet ("/manageNews")
 public class ManageNews extends HttpServlet {
 	private static NewsPaper news=new NewsPaper();
 	public void service(HttpServletRequest req, HttpServletResponse res)

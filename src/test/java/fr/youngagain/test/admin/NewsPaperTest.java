@@ -25,7 +25,7 @@ public class NewsPaperTest {
 	public void getNewsTest() {
 		Map<String,String> testMap=newspaper.getList();
 		assertEquals("toti", testMap.get("toto"));
-		assertEquals("titre", testMap.get("description"));		
+		assertEquals("description", testMap.get("titre"));
 	}
 	
 	@Test
