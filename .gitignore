@@ -4,3 +4,5 @@
 .classpath
 .settings
 target/
+youngagain.mv.db
+youngagain.trace.db

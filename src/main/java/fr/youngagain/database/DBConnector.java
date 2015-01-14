@@ -9,13 +9,14 @@ public class DBConnector {
 
 	public static Connection getConnection() throws SQLException {
 		try {
-			if (c == null | c.isClosed()) {
+			if (c == null || c.isClosed()) {
 				Class.forName("org.h2.Driver");
-				c = DriverManager.getConnection("jdbc:h2:youngagain");
+				c = DriverManager.getConnection("jdbc:h2:./youngagain");
 			}
 		} catch (ClassNotFoundException cnfe) {
 			throw new SQLException("Échec de connexion à la base de données.");
 		} catch (SQLException sqle) {
+			sqle.printStackTrace();
 			throw new SQLException("Échec de connexion à la base de données.");
 		}
 

@@ -1,32 +1,23 @@
 package fr.youngagain.database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class InitDB {
-	public void init() {
-		Connection c = null;
+	public static void init() {
 		Statement stmt = null;
 		try {
-			Class.forName("org.h2.Driver");
-			c = DriverManager.getConnection("jdbc:h2:youngagain");
-			stmt= c.createStatement();
+			stmt = DBConnector.getConnection().createStatement();
 			String query = "CREATE TABLE USER"
-					+ "(LOGIN TEXT PRIMARY KEY,"
-					+ "FIRSTNAME TEXT NOT NULL,"
-					+ "LASTNAME TEXT NOT NULL,"
+					+ "(LOGIN VARCHAR(20) PRIMARY KEY,"
+					+ "FIRSTNAME VARCHAR(50) NOT NULL,"
+					+ "LASTNAME VARCHAR(50) NOT NULL,"
 					+ "PASWD VARCHAR(12) NOT NULL);";
 			stmt.executeUpdate(query);
-		} catch (SQLException | ClassNotFoundException e1) {
-			e1.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			try {
-				c.close();
-			} catch (Exception e2) {
-				e2.printStackTrace();
-			}
+			DBConnector.closeConnection();
 		}
 	}
 }
