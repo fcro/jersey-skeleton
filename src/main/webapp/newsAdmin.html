@@ -21,11 +21,27 @@
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#">YoungAgain</a>
 			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav">
+				<li class="accueil"><a href="pageAdmin.html">Acceuil<span class="sr-only">(current)</span></a></li>
+			  </ul>
 			<!--<center><h1>Page d'Administration</h1></center>-->
 		  </div><!-- /.container-fluid -->
 		</nav>
 		
 		<h1 id="admin">Page d'Administration des News</h1>
 		
+		<div class="news">
+			<div class="news_txtArea"><form method="post" action="traitement.php">
+				<p>
+					<textarea name="ameliorer" id="ameliorer" rows="8" cols="100">Ajouter news</textarea>
+				</p>
+			</form></div>
+			<div class="news_btn">
+				<button type="submit" class="btn btn-warning btn-lg btnNews">Ajouter</button>
+				<button type="submit" class="btn btn-warning btn-lg btnNews">Modifier</button>
+				<button type="submit" class="btn btn-warning btn-lg btnNews">Supprimer</button>
+			</div>
+		</div>	
 	</body>
 </html>
