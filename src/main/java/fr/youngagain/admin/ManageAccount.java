@@ -7,7 +7,10 @@ import fr.youngagain.database.DBConnector;
 public class ManageAccount {
 
 	public static boolean createAccount(String nom, String prenom,
-			String login, String mdp) throws SQLException /*, LoginAlreadyUsedException*/{
+			String login, String mdp) throws SQLException /*
+														 * ,
+														 * LoginAlreadyUsedException
+														 */{
 		Connection con = null;
 		if (!loginAlreadyUsed(login)) {
 
@@ -15,9 +18,9 @@ public class ManageAccount {
 
 				Statement stmt = DBConnector.getConnection().createStatement();
 
-				String query = "insert into "/*TABLE_DES_USERS*/ + "values(\'" + nom
-						+ "\', \'" + prenom + "\', \'" + login + "\', \'" + mdp
-						+ "\')";
+				String query = "insert into "/* TABLE_DES_USERS */+ "values(\'"
+						+ nom + "\', \'" + prenom + "\', \'" + login + "\', \'"
+						+ mdp + "\')";
 				stmt.executeUpdate(query);
 				con.close();
 
@@ -27,7 +30,7 @@ public class ManageAccount {
 				con.close();
 			}
 		} else {
-			//throws new LoginAlreadyUsedException();
+			// throws new LoginAlreadyUsedException();
 			return false;
 		}
 
@@ -41,12 +44,13 @@ public class ManageAccount {
 
 			Statement stmt = DBConnector.getConnection().createStatement();
 
-			ResultSet rs = stmt
-					.executeQuery("select login from " /*TABLE_DES_USERS*/ + "where login = \'"
-							+ login + "\'");
+			ResultSet rs = stmt.executeQuery("select login from " /* TABLE_DES_USERS */
+					+ "where login = \'" + login + "\'");
 
-			if (rs.getString(0).equals(login)) {
-				used = true;
+			if (rs.next()) {
+				if (rs.getString("login").equals(login)) {
+					used = true;
+				}
 			}
 			con.close();
 
@@ -60,7 +64,10 @@ public class ManageAccount {
 
 	}
 
-	public static boolean deleteAccount(String login) throws SQLException /*, AccountNotFoundException*/ {
+	public static boolean deleteAccount(String login) throws SQLException /*
+																		 * ,
+																		 * AccountNotFoundException
+																		 */{
 
 		boolean deleted = false;
 		if (loginAlreadyUsed(login)) {
@@ -68,8 +75,9 @@ public class ManageAccount {
 			try {
 
 				Statement stmt = DBConnector.getConnection().createStatement();
-				
-				stmt.executeUpdate("delete from TABLE_DES_USERS wher login =\'"+login+"\'");
+
+				stmt.executeUpdate("delete from TABLE_DES_USERS wher login =\'"
+						+ login + "\'");
 				con.close();
 				deleted = true;
 
@@ -80,67 +88,73 @@ public class ManageAccount {
 				con.close();
 			}
 		} else {
-			//throws new AccountNotFoundException();
+			// throws new AccountNotFoundException();
 		}
 		return deleted;
 	}
-	
-	public static boolean modifyPassword(String login, String newPassword, String confirmNewPassword, String oldPassword) throws SQLException{
+
+	public static boolean modifyPassword(String login, String newPassword,
+			String confirmNewPassword, String oldPassword) throws SQLException {
 		boolean changed = false;
 		Connection con = null;
-		if(loginAlreadyUsed(login)){
-			if(newPassword.equals(confirmNewPassword)){
-				try{
-					if(passwordIsCorrect(login, oldPassword)){
-						
-						Statement stmt = DBConnector.getConnection().createStatement();
-						
-						String update = "update" /*TABLE-DES-USERS*/;
-						update += "set mdp = " + newPassword + " where login = \'" + login +"\'";
+		if (loginAlreadyUsed(login)) {
+			if (newPassword.equals(confirmNewPassword)) {
+				try {
+					if (passwordIsCorrect(login, oldPassword)) {
+
+						Statement stmt = DBConnector.getConnection()
+								.createStatement();
+
+						String update = "update" /* TABLE-DES-USERS */;
+						update += "set mdp = " + newPassword
+								+ " where login = \'" + login + "\'";
 						stmt.executeUpdate(update);
 						con.close();
 					}
-													
-				}catch(Exception e){
+
+				} catch (Exception e) {
 					e.printStackTrace();
 				} finally {
 					con.close();
 				}
 			}
 		} else {
-			//throws AccountNotFoundException
+			// throws AccountNotFoundException
 		}
 		return changed;
 	}
-	
-	public static boolean passwordIsCorrect(String login, String pwd) throws SQLException{
+
+	public static boolean passwordIsCorrect(String login, String pwd)
+			throws SQLException {
 		Connection con = null;
 		boolean correct = false;
-		
-		try{
-			
+
+		try {
+
 			Statement stmt = DBConnector.getConnection().createStatement();
-			
-			ResultSet rs = stmt.executeQuery("select mdp from" /*TABLE_DES_USERS*/ + " where login = \'" + login + "\'");
-			String rs_mdp = rs.getString(0);
-			
-			if(rs_mdp.equals(pwd)){
-				correct = true;
+
+			ResultSet rs = stmt.executeQuery("select mdp from" /* TABLE_DES_USERS */
+					+ " where login = \'" + login + "\'");
+
+			if (rs.next()) {
+				if (rs.getString("mdp").equals(pwd)) {
+					correct = true;
+				}
 			}
-			
+
 			con.close();
-		
-		} catch (Exception e){
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			con.close();
 		}
-		
+
 		return correct;
-		
+
 	}
-	
-	public static boolean blockAccount(String login){
+
+	public static boolean blockAccount(String login) {
 		return true;
 	}
 
