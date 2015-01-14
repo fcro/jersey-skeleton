@@ -38,9 +38,18 @@
 				</p>
 			</form></div>
 			<div class="news_btn">
-				<button type="submit" class="btn btn-warning btn-lg btnNews">Ajouter</button>
-				<button type="submit" class="btn btn-warning btn-lg btnNews">Modifier</button>
-				<button type="submit" class="btn btn-warning btn-lg btnNews">Supprimer</button>
+				<form class="ajout" method="POST" action="/manageNews"
+					<input type="hidden" name="act" value="add"/>
+					<button type="submit" class="btn btn-warning btn-lg btnNews">Ajouter</button>
+				</form>	
+				<form class="update" method="POST" action="/manageNews"
+					<input type="hidden" name="act" value="up"/>
+					<button type="submit" class="btn btn-warning btn-lg btnNews">Modifier</button>
+				</form>
+				<form class="ajout" method="POST" action="/manageNews"
+					<input type="hidden" name="act" value="del"/>	
+					<button type="submit" class="btn btn-warning btn-lg btnNews">Supprimer</button>
+				</form>
 			</div>
 		</div>	
 	</body>
