@@ -2,6 +2,8 @@ package fr.youngagain.admin;
 
 import java.sql.*;
 
+import fr.youngagain.database.DBConnector;
+
 public class ManageAccount {
 
 	public static boolean createAccount(String nom, String prenom,
@@ -11,16 +13,7 @@ public class ManageAccount {
 
 			try {
 
-				Statement stmt;
-
-				Class.forName("nom_du_Driver"); //a changer
-
-				String url = "url_de_la_base";
-				String log = "login";
-				String password = "mot_de_passe";
-
-				con = DriverManager.getConnection(url, log, password);
-				stmt = con.createStatement();
+				Statement stmt = DBConnector.getConnection().createStatement();
 
 				String query = "insert into "/*TABLE_DES_USERS*/ + "values(\'" + nom
 						+ "\', \'" + prenom + "\', \'" + login + "\', \'" + mdp
@@ -41,24 +34,18 @@ public class ManageAccount {
 		return true;
 	}
 
-	public static boolean loginAlreadyUsed(String log) throws SQLException {
+	public static boolean loginAlreadyUsed(String login) throws SQLException {
 		Connection con = null;
 		boolean used = false;
 		try {
 
-			Statement stmt;
-			Class.forName("nom_du_driver");	// a changer
-			String url = "url_de_la_base";
-			String login = "login";
-			String mdp = "mot_de_passe";
-			con = DriverManager.getConnection(url, login, mdp);
-			stmt = con.createStatement();
+			Statement stmt = DBConnector.getConnection().createStatement();
 
 			ResultSet rs = stmt
 					.executeQuery("select login from " /*TABLE_DES_USERS*/ + "where login = \'"
 							+ login + "\'");
 
-			if (rs.getString(0).equals(log)) {
+			if (rs.getString(0).equals(login)) {
 				used = true;
 			}
 			con.close();
@@ -80,14 +67,7 @@ public class ManageAccount {
 			Connection con = null;
 			try {
 
-				Statement stmt;
-
-				Class.forName("nom_du_Driver"); // a changer
-				String url = "url_de_la_base";
-				String log = "login";
-				String mdp = "mot_de_passe";
-				con = DriverManager.getConnection(url, log, mdp);
-				stmt = con.createStatement();
+				Statement stmt = DBConnector.getConnection().createStatement();
 				
 				stmt.executeUpdate("delete from TABLE_DES_USERS wher login =\'"+login+"\'");
 				con.close();
@@ -113,14 +93,7 @@ public class ManageAccount {
 				try{
 					if(passwordIsCorrect(login, oldPassword)){
 						
-						Statement stmt;
-
-						Class.forName("nom_du_Driver"); // a changer
-						String url = "url_de_la_base";
-						String log = "login";
-						String mdp = "mot_de_passe";
-						con = DriverManager.getConnection(url, log, mdp);
-						stmt = con.createStatement();
+						Statement stmt = DBConnector.getConnection().createStatement();
 						
 						String update = "update" /*TABLE-DES-USERS*/;
 						update += "set mdp = " + newPassword + " where login = \'" + login +"\'";
@@ -134,11 +107,6 @@ public class ManageAccount {
 					con.close();
 				}
 			}
-			
-			
-			
-			
-			
 		} else {
 			//throws AccountNotFoundException
 		}
@@ -151,14 +119,7 @@ public class ManageAccount {
 		
 		try{
 			
-			Statement stmt;
-
-			Class.forName("nom_du_Driver"); // a changer
-			String url = "url_de_la_base";
-			String log = "login";
-			String mdp = "mot_de_passe";
-			con = DriverManager.getConnection(url, log, mdp);
-			stmt = con.createStatement();
+			Statement stmt = DBConnector.getConnection().createStatement();
 			
 			ResultSet rs = stmt.executeQuery("select mdp from" /*TABLE_DES_USERS*/ + " where login = \'" + login + "\'");
 			String rs_mdp = rs.getString(0);
