@@ -21,6 +21,6 @@ public class ManageNews extends HttpServlet {
 		if(s.equals("up")){
 			news.update(new News());
 		}
-		
+	res.sendRedirect("./src/main/webapp/newsAdmin.html");	
 	}
 }
