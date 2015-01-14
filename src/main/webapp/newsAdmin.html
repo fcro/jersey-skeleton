@@ -33,23 +33,28 @@
 		<h1 id="admin">Page d'Administration des News</h1>
 		
 		<div class="news">
-			<div class="news_txtArea"><form method="post" action="traitement.php">
-				<p>
-					<textarea name="ameliorer" id="ameliorer" rows="8" cols="100">Ajouter news</textarea>
-				</p>
-			</form></div>
-			<div class="news_btn">
-				<form class="ajout" method="POST" action="/manageNews">
-					<input type="hidden" name="act" value="add"/>
-					<button type="submit" class="btn btn-warning btn-lg btnNews">Ajouter</button>
-				</form>	
-				<form class="update" method="POST" action="/manageNews">
-					<input type="hidden" name="act" value="up"/>
-					<button type="submit" class="btn btn-warning btn-lg btnNews">Modifier</button>
+			<div class="news_txtArea">
+				<form method="post" action="traitement.php">
+					<p>
+						<textarea name="ameliorer" id="ameliorer" rows="8" cols="100">Ajouter news</textarea>
+					</p>
 				</form>
-				<form class="ajout" method="POST" action="/manageNews">
+			</div>
+			<div class="news_btn">
+				<!-- TODO: modifier le lien d'action -->
+				<form class="ajout" method="POST" action="/AGNEUGNEU">
+					<input type="hidden" name="act" value="add"/>
+					<input type="submit" class="btn btn-warning btn-lg btnNews" value="Ajouter"/>
+				</form>
+				<!-- TODO: modifier le lien d'action -->
+				<form class="ajout" method="POST" action="/AGNEUGNEU">
+					<input type="hidden" name="act" value="up"/>
+					<input type="submit" class="btn btn-warning btn-lg btnNews" value="Modifier"/>
+				</form>
+				<!-- TODO: modifier le lien d'action -->
+				<form class="ajout" method="POST" action="/AGNEUGNEU">
 					<input type="hidden" name="act" value="del"/>	
-					<button type="submit" class="btn btn-warning btn-lg btnNews">Supprimer</button>
+					<input type="submit" class="btn btn-warning btn-lg btnNews" value="Supprimer"/>
 				</form>
 			</div>
 		</div>	
