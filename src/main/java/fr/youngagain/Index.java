@@ -21,7 +21,7 @@ public class Index extends HttpServlet {
 		if (session.getAttribute("role") == null) {
 			PrintWriter out = res.getWriter();
 			PHProcks.include(out, new File("./resources/includes/index/index.html"));
-			if (req.getParameter("bl") == "1")
+			if (req.getParameter("bl") != null)
 				out.println("<br><center>Erreur d'authentification</center></body></html>");
 		} else if (session.getAttribute("role").equals("admin")) {
 			res.sendRedirect("pageAdmin.html");
