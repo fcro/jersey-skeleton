@@ -16,6 +16,7 @@ html {
 }
 body {
   margin: 0;
+  height: 100%;
 }
 article,
 aside,
@@ -2805,8 +2806,8 @@ fieldset[disabled] .btn {
 }
 .btn-default {
   color: #333333;
-  background-color: #ffffff;
-  border-color: #cccccc;
+  background-color: #e58100;
+  border-color: #e58100;
 }
 .btn-default:hover,
 .btn-default:focus,
@@ -3950,6 +3951,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
+  color : white;
   text-decoration: none;
 }
 .navbar-brand > img {
@@ -4172,7 +4174,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #5e5e5e;
+  color: white;
   background-color: transparent;
 }
 .navbar-default .navbar-text {
@@ -5819,6 +5821,7 @@ button.close {
 }
 .carousel {
   position: relative;
+  width: 50%;
 }
 .carousel-inner {
   position: relative;
@@ -5878,7 +5881,7 @@ button.close {
 .carousel-inner > .prev {
   position: absolute;
   top: 0;
-  width: 100%;
+  width: 50%;
 }
 .carousel-inner > .next {
   left: 100%;
