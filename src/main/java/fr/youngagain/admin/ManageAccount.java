@@ -174,5 +174,34 @@ public class ManageAccount {
 
 		return blocked;
 	}
+	
+	public static boolean sendWarning(String login) throws SQLException{
+		boolean warned = true;
+		Connection con = null;
+		if(loginAlreadyUsed(login)){
+			try{
+				
+				Statement stmt = DBConnector.getConnection().createStatement();
+				
+				ResultSet rs = stmt.executeQuery("SELECT warnings FROM "+ /*TABLE_DES_USERS*/ " user WHERE login = \'" + login + "\'");
+				
+				if(rs.next()){
+					int warning = rs.getInt("warnings") + 1;
+					stmt.executeQuery("UPDATE user SET warnings = "+ warning +" WHERE login = \'" + login + "\'");
+					
+				} else {
+					stmt.executeQuery("UPDATE user SET warnings = 1 WHERE login = \'" + login + "\'");
+				}
+				
+			} catch (Exception e){
+				e.printStackTrace();
+				warned = false;
+				con.close();
+			} finally {
+				con.close();
+			}
+		}
+		return warned;
+	}
 
 }
