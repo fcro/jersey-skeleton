@@ -3110,6 +3110,7 @@ fieldset[disabled] .btn-link:focus {
 .btn-lg,
 .btn-group-lg > .btn {
   padding: 10px 16px;
+  margin : 20px 20px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 6px;
@@ -6334,4 +6335,13 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+
+#admin{
+  text-align : center;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border : 2px solid #e58100;
+  border-radius : 10px;
 }
