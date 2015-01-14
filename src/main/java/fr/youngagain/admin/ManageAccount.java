@@ -154,8 +154,25 @@ public class ManageAccount {
 
 	}
 
-	public static boolean blockAccount(String login) {
-		return true;
+	public static boolean blockAccount(String login) throws SQLException {
+		Connection con = null;
+		boolean blocked = true;
+		if (loginAlreadyUsed(login)) {
+			try {
+				Statement stmt = DBConnector.getConnection().createStatement();
+				String query = "UPDATE " /* TABLE_DES_USERS */
+						+ " SET blocked = true WHERE login = \'" + login + "\'";
+				stmt.executeUpdate(query);
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				blocked = false;
+			} finally {
+				con.close();
+			}
+		}
+
+		return blocked;
 	}
 
 }
