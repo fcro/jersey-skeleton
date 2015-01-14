@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class NewsTest {
-
+/*
 	@Test
 	public void getNewsTest() {
 		fail("Not yet implemented");
@@ -24,5 +24,5 @@ public class NewsTest {
 	@Test
 	public void editNewsTest() {
 		fail("Not yet implemented");
-	}
+	}*/
 }

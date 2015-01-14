@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class EventsTest {
-
+/*
 	@Test
 	public void getEventsListTest() {
 		fail("Not yet implemented");
@@ -29,5 +29,5 @@ public class EventsTest {
 	@Test
 	public void deleteEventTest() {
 		fail("Not yet implemented");
-	}
+	}*/
 }
