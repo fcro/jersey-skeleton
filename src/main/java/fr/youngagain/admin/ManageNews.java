@@ -14,7 +14,7 @@ public class ManageNews extends HttpServlet {
 			throws ServletException, IOException {
 		String s = req.getParameter("act");
 		if(s.equals("add")){
-			news.addNews(new News( ));
+			news.addNews(new News());
 		}
 		if(s.equals("del")){
 			news.remove(new News());
@@ -22,6 +22,6 @@ public class ManageNews extends HttpServlet {
 		if(s.equals("up")){
 			news.update(new News());
 		}
-	res.sendRedirect("./src/main/webapp/newsAdmin.html");	
+	res.sendRedirect("newsAdmin.html");
 	}
 }
