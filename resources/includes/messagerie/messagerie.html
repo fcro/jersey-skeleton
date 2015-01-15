@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Messagerie électronique</title>
+
+    <!-- bootstrap -->
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<style type="text/css"></style>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand" href="#">YoungAgain</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+			<li class="accueil"><a href="pageAcceuil.html">Acceuil<span class="sr-only">(current)</span></a></li>
+			<li class="msg"><a href="#">Messagerie<span class="sr-only">(current)</span></a></li>
+			<li class="contact"><a href="#">Contact<span class="sr-only">(current)</span></a></li>
+			<li class="event"><a href="#">Evenement<span class="sr-only">(current)</span></a></li>
+		  </ul>
+		  <form class="navbar-form navbar-right" role="search">
+			<div class="form-group">
+			  <input type="text" class="form-control" placeholder="Recherche">
+			</div>
+			<button type="submit" class="btn btn-default">Rechercher</button>
+		  </form>
+		  <ul class="nav navbar-nav navbar-right">
+			<li class="profil"><a href="#">Profil<span class="sr-only">(current)</span></a></li>
+		  </ul>
+
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+    
+    <h2>Messagerie électronique</h2>
+    <p>
+    <button type="button" class="btn btn-warning">Courriers reçus</button>
+    <button type="button" class="btn btn-warning">Courriers envoyés</button>
+    <button type="button" class="btn btn-warning">Brouillons</button>
+    <button type="button" class="btn btn-warning">Autres</button>
+    </p>
+    <br>
+    <hr>  
+
+    <nav>
+    <ul class="">
+	    <li class="mess"><a href="#">Nouveau message</a></li>
+	    <li class="mess"><a href="#">Répondre au message</a></li>
+	    <li class="mess"><a href="#">Supprimer le message</a></li>
+	    <li class="mess"><a href="#">Enregistrer dans les brouillons</a></li>
+  </ul>
+	<nav class="boutons_envoie">
+	<form>
+  		
+    			Objet du message : <input type="text">
+    			Adresse destinataire : <input type="text">
+    		<button>Envoyer</button>
+	</form>
+	</nav>	
+
+	<div class="message_txtArea">
+	<form method="post" action="traitement.php">
+		<p>
+		<textarea name="ameliorer" id="ameliorer" rows="8" cols="100">Taper votre message ici...</textarea>
+		</p>
+	</form>
+	</div>
+</nav> 
+
+    <!-- <form action="textarea.htm">
+    <p>Nouveau message:<br>
+    <textarea name="entree_utilisateur" cols="50" rows="10"></textarea>
+    </p>
+    </form> -->
+	  
+  </body>
+</html>
+
