@@ -12,7 +12,7 @@ public class DBConnector {
 
 	public static TheDAO getDAO() {
 		if (dbi == null || dao == null) {
-			DataSource ds = JdbcConnectionPool.create("jdbc:h2:./youngagain:ya", "yadb", "thesuperdbpassword");
+			DataSource ds = JdbcConnectionPool.create("jdbc:h2:./youngagain", "yadb", "thesuperdbpassword");
 			DBI dbi = new DBI(ds);
 			dao = dbi.open(TheDAO.class);
 		}
