@@ -6380,7 +6380,7 @@ footer {
 	bottom: 0;
 	width: 100%;
 	height: 30px;
-	background: #333333;
+	background: #222222;
 }
 
 footer a {
@@ -6390,4 +6390,12 @@ footer a {
 footer a:hover {
 	color: #CCEEDD;
 	decoration: underline;
+}
+
+#newsTitle {
+	display: inline;
+}
+
+#date {
+	margin-left: 200px;
 }
