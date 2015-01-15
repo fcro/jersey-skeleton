@@ -1105,6 +1105,7 @@ h6,
   font-size: 12px;
 }
 p {
+  text-align:justify;
   margin: 0 0 10px;
 }
 .lead {
