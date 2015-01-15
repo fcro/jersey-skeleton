@@ -1,4 +1,4 @@
-package fr.youngagain.utils;
+package fr.youngagain.utils.exception;
 
 public class AccountNotFoundException extends Exception {
 	private String message;

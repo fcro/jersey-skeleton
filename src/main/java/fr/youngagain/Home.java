@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.youngagain.utils.DBConnector;
-import fr.youngagain.utils.PHProcks;
-import fr.youngagain.utils.TheDAO;
+import fr.youngagain.utils.database.DBConnector;
+import fr.youngagain.utils.database.TheDAO;
+import fr.youngagain.utils.html.PHProcks;
 
 @WebServlet("/accueil")
 public class Home extends HttpServlet {

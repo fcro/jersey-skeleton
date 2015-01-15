@@ -1,4 +1,4 @@
-package fr.youngagain.utils;
+package fr.youngagain.utils.exception;
 
 public class PasswordFormatException extends Exception {
 	private String message;

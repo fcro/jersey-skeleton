@@ -1,4 +1,4 @@
-package fr.youngagain.utils;
+package fr.youngagain.utils.html;
 
 import java.io.BufferedReader;
 import java.io.File;

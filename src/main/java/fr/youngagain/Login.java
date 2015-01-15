@@ -15,8 +15,8 @@ import javax.servlet.http.HttpSession;
 
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 
-import fr.youngagain.utils.DBConnector;
-import fr.youngagain.utils.TheDAO;
+import fr.youngagain.utils.database.DBConnector;
+import fr.youngagain.utils.database.TheDAO;
 
 @WebServlet("/login")
 public class Login extends HttpServlet {

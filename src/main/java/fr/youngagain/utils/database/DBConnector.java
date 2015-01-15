@@ -1,4 +1,4 @@
-package fr.youngagain.utils;
+package fr.youngagain.utils.database;
 
 import javax.sql.DataSource;
 

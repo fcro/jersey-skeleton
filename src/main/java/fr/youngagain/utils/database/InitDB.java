@@ -1,4 +1,4 @@
-package fr.youngagain.utils;
+package fr.youngagain.utils.database;
 
 import java.sql.SQLException;
 import java.sql.Statement;

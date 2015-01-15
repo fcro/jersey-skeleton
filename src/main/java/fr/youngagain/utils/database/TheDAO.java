@@ -1,4 +1,4 @@
-package fr.youngagain.utils;
+package fr.youngagain.utils.database;
 
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
@@ -10,7 +10,15 @@ public interface TheDAO {
 					+ "(login VARCHAR(20) PRIMARY KEY,"
 					+ "firstName VARCHAR(50) NOT NULL,"
 					+ "lastName VARCHAR(50) NOT NULL,"
-					+ "paswd VARCHAR(12) NOT NULL, role VARCHAR(5) NOT NULL);"
+					+ "paswd VARCHAR(12) NOT NULL,"
+					+ "dateNaiss VARCHAR(8),"
+					+ "sexe VARCHAR(1),"
+					+ "fumeur BOOLEAN,"
+					+ "ville VARCHAR(30),"
+					+ "photo VARCHAR(255),"
+					+ "mail VARCHAR(60),"
+					+ "role VARCHAR(20) NOT NULL);"
+
 					+ "CREATE TABLE IF NOT EXISTS news(id SERIAL PRIMARY KEY,"
 					+ "title TEXT NOT NULL,"
 					+ "date VARCHAR(8) NOT NULL,"
