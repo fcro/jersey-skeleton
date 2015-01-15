@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head  class = "entete">
+		<title>Gestion des news</title>
+		<meta charset='utf-8'>
+		<!-- jQuery -->
+		<!--<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
+		
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		
+		<!-- Code local -->
+		<script src="all.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">YoungAgain</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav">
+				<li class="accueil"><a href="pageAdmin.html">Accueil<span class="sr-only">(current)</span></a></li>
+			  </ul>
+			<!--<center><h1>Page d'Administration</h1></center>-->
+            </div>
+		  </div><!-- /.container-fluid -->
+		</nav>
+		
+		<h1 id="admin">Page d'Administration des News</h1>
+		
+		<div class="news">
+			<div class="news_txtArea">
+				<!-- TODO: modifier le lien d'action -->
+				<form method="post" action="/AGNEUGNEU">
+					<p>
+						<textarea name="ameliorer" id="ameliorer" rows="8" cols="100">Ajouter news</textarea>
+					</p>
+				</form>
+			</div>
+			<div class="news_btn">
+				<form class="ajout" method="POST" action="/manageNews">
+					<input type="hidden" name="act" value="add"/>
+					<input type="submit" class="btn btn-warning btn-lg btnNews" value="Ajouter"/>
+				</form>
+				<form class="ajout" method="POST" action="/manageNews">
+					<input type="hidden" name="act" value="up"/>
+					<input type="submit" class="btn btn-warning btn-lg btnNews" value="Modifier"/>
+				</form>
+				<form class="ajout" method="POST" action="/manageNews">
+					<input type="hidden" name="act" value="del"/>	
+					<input type="submit" class="btn btn-warning btn-lg btnNews" value="Supprimer"/>
+				</form>
+			</div>
+		</div>	
+	</body>
+</html>
