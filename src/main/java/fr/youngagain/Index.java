@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import fr.youngagain.utils.html.PHProcks;
 
-@WebServlet("/index.html")
+@WebServlet("/index")
 public class Index extends HttpServlet {
 
 	@Override
