@@ -15,24 +15,31 @@ import fr.youngagain.utils.PasswordFormatException;
 public class ManageAccountsTest {
 
 	@BeforeClass
-	public static void init() {
-		ManageAccount.createAccount("Dug", "dug", "dug", "pword");
-		ManageAccount.createAccount("Fu", "fu", "fu", "dfgjd");
-		ManageAccount.blockAccount("fu");
+	public static void init() throws LoginAlreadyUsedException {
+		
+			ManageAccount.createAccount("Dug", "dug", "dug", "pword");
+			ManageAccount.createAccount("Fu", "fu", "fu", "dfgjd");
+			ManageAccount.blockAccount("fu");
+		
 	}
 
 	@Test
-	public void createAccountTest() {
-		assertTrue(ManageAccount.createAccount("Dupont", "Gabozumeu", "dupontg", "password"));
+	public void createAccountTest() throws LoginAlreadyUsedException {
+		
+			assertTrue(ManageAccount.createAccount("Dupont", "Gabozumeu", "dupontg", "password"));
+		
+		
 	}
 
 	@Test(expected=LoginAlreadyUsedException.class)
-	public void LoginAlreadyUsedExceptionTest() {
-		ManageAccount.createAccount("Dug", "dug", "dug", "pword");
+	public void LoginAlreadyUsedExceptionTest() throws LoginAlreadyUsedException {
+		
+			ManageAccount.createAccount("Dug", "dug", "dug", "pword");
+		
 	}
 
 	@Test
-	public void deleteAccountTest() {
+	public void deleteAccountTest() throws AccountNotFoundException, LoginAlreadyUsedException {
 		assertFalse(ManageAccount.deleteAccount("totod"));
 		ManageAccount.createAccount("Dumond", "toto", "totod", "pswd");
 		assertTrue(ManageAccount.deleteAccount("totod"));
@@ -40,19 +47,19 @@ public class ManageAccountsTest {
 	}
 
 	@Test
-	public void modifyAccountPasswordTest() {
+	public void modifyAccountPasswordTest() throws LoginAlreadyUsedException, AccountNotFoundException, PasswordFormatException {
 		ManageAccount.createAccount("Chose", "Truc", "mach", "ps");
 		assertTrue(ManageAccount.modifyPassword("mach", "peuceu", "peuceu", "ps"));
 	}
 
 	@Test(expected=AccountNotFoundException.class)
-	public void accountNotFoundExceptionTest() {
+	public void accountNotFoundExceptionTest() throws AccountNotFoundException, PasswordFormatException {
 		ManageAccount.modifyPassword("cecomptenexistepas", "abc", "abc", "def");
 		ManageAccount.deleteAccount("cecomptenexistepas");
 	}
 
 	@Test(expected=PasswordFormatException.class)
-	public void modifyAccountPasswordExceptionTest() {
+	public void modifyAccountPasswordExceptionTest() throws AccountNotFoundException, LoginAlreadyUsedException, PasswordFormatException {
 		ManageAccount.createAccount("bidule", "agneugneu", "brlbrl", "secret");
 		ManageAccount.modifyPassword("brlbrl", "secret", "secret", "secret");
 		ManageAccount.modifyPassword("brlbrl", "secre", "secret", "secret");

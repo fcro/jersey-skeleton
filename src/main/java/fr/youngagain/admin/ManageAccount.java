@@ -2,15 +2,15 @@ package fr.youngagain.admin;
 
 import java.sql.*;
 
+import fr.youngagain.utils.AccountNotFoundException;
 import fr.youngagain.utils.DBConnector;
+import fr.youngagain.utils.LoginAlreadyUsedException;
+import fr.youngagain.utils.PasswordFormatException;
 
 public class ManageAccount {
 
 	public static boolean createAccount(String nom, String prenom,
-			String login, String mdp) /*
-														 * ,
-														 * LoginAlreadyUsedException
-														 */{
+			String login, String mdp) throws LoginAlreadyUsedException{
 		
 		if (!loginAlreadyUsed(login)) {
 
@@ -30,8 +30,8 @@ public class ManageAccount {
 				DBConnector.closeConnection();
 			}
 		} else {
-			// throws new LoginAlreadyUsedException();
-			return false;
+			throw new LoginAlreadyUsedException();
+			
 		}
 
 		return true;
@@ -64,10 +64,7 @@ public class ManageAccount {
 
 	}
 
-	public static boolean deleteAccount(String login)  /*
-																		 * ,
-																		 * AccountNotFoundException
-																		 */{
+	public static boolean deleteAccount(String login) throws AccountNotFoundException{
 
 		boolean deleted = false;
 		if (loginAlreadyUsed(login)) {
@@ -88,13 +85,13 @@ public class ManageAccount {
 				DBConnector.closeConnection();
 			}
 		} else {
-			// throws new AccountNotFoundException();
+			throw new AccountNotFoundException();
 		}
 		return deleted;
 	}
 
 	public static boolean modifyPassword(String login, String newPassword,
-			String confirmNewPassword, String oldPassword)  {
+			String confirmNewPassword, String oldPassword) throws AccountNotFoundException, PasswordFormatException  {
 		boolean changed = false;
 		
 		if (loginAlreadyUsed(login)) {
@@ -111,6 +108,9 @@ public class ManageAccount {
 						stmt.executeUpdate(update);
 						
 					}
+					else{
+						throw new PasswordFormatException();
+					}
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -118,8 +118,11 @@ public class ManageAccount {
 					DBConnector.closeConnection();
 				}
 			}
+			else{
+				throw new PasswordFormatException();
+			}
 		} else {
-			// throws AccountNotFoundException
+			throw new AccountNotFoundException();
 		}
 		return changed;
 	}
