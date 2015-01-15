@@ -18,6 +18,29 @@ public interface TheDAO {
 					+ "photo VARCHAR(255),"
 					+ "mail VARCHAR(60),"
 					+ "role VARCHAR(20) NOT NULL);"
+					
+					+ "CREATE TABLE IF NOT EXISTS critereUser"
+					+ "(login VARCHAR(20) PRIMARY KEY,"
+					+ "acceptFumeur BOOLEAN,"
+					+ "acceptSexe VARCHAR(1),"
+					+ "sport TINYINT,"
+					+ "culture TINYINT,"
+					+ "musique TINYINT,"
+					+ "cinema TINYINT,"
+					+ "typeDest VARCHAR(20),"
+					+ "FOREIGN KEY(login) REFERENCES USER(login));"
+
+					+ "CREATE TABLE IF NOT EXISTS voyage"
+					+ "(id INT PRIMARY KEY,"
+					+ "login VARCHAR(20),"
+					+ "FOREIGN KEY (login) REFERENCES USER(login));"
+
+					+ "CREATE TABLE IF NOT EXISTS critereVoyage"
+					+ "(id_voyage INT PRIMARY KEY,"
+					+ "typeDest VARCHAR(20),"
+					+ "lieu VARCHAR(50),"
+					+ "maxPerson SMALLINT,"
+					+ "login_createur VARCHAR(20));"
 
 					+ "CREATE TABLE IF NOT EXISTS news(id SERIAL PRIMARY KEY,"
 					+ "title TEXT NOT NULL,"
@@ -25,13 +48,23 @@ public interface TheDAO {
 					+ "text TEXT NOT NULL);")
 	void initDB();
 
-	@SqlQuery("SELECT role FROM user WHERE login = :login AND paswd = :paswd")
+	@SqlQuery("SELECT role FROM USER WHERE login = :login AND paswd = :paswd")
 	String getRoleByLoginPswd(@Bind("login") String login, @Bind("paswd") String paswd);
+
+	@SqlQuery("SELECT login FROM USER WHERE login = :login")
+	String getUserByLogin(@Bind("login") String login);
+
+	@SqlUpdate("INSERT INTO USER(login, paswd, firstName, lastName, role) VALUES(:login, :paswd," +
+			":firstName, :lastName, 'user')")
+	void addUser(@Bind("login") String login, @Bind("paswd") String paswd, @Bind("firstName") String firstName,
+			@Bind("lastName") String lastName);
 	
-	@SqlUpdate("INSERT INTO user VALUES('admin', 'admin', 'admin', 'superadmin', 'admin')")
+	@SqlUpdate("INSERT INTO user(login, firstName, lastName, paswd, role) " +
+			"VALUES('admin', 'admin', 'admin', 'superadmin', 'admin')")
 	void addAdmin();
 	
-	@SqlUpdate("INSERT INTO user VALUES('moi', 'moi', 'moi', 'supermoi', 'user')")
+	@SqlUpdate("INSERT INTO user(login, firstName, lastName, paswd, role) " +
+			"VALUES('moi', 'moi', 'moi', 'supermoi', 'user')")
 	void addMoi();
 	
 	@SqlUpdate("INSERT INTO news(title, date, text) VALUES('Bienvenue !', '13011995', 'Ceci est un texte')")
