@@ -1,31 +1,23 @@
 package fr.youngagain.utils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import javax.sql.DataSource;
+
+import org.h2.jdbcx.JdbcConnectionPool;
+import org.skife.jdbi.v2.DBI;
 
 public class DBConnector {
-	private static Connection c = null;
 
-	public static Connection getConnection() throws SQLException {
-		try {
-			if (c == null || c.isClosed()) {
-				Class.forName("org.h2.Driver");
-				c = DriverManager.getConnection("jdbc:h2:./youngagain");
-			}
-		} catch (ClassNotFoundException cnfe) {
-			throw new SQLException("Échec de connexion à la base de données.");
-		} catch (SQLException sqle) {
-			sqle.printStackTrace();
-			throw new SQLException("Échec de connexion à la base de données.");
+	private static TheDAO dao = null;
+	private static DBI dbi = null;
+
+	public static TheDAO getDAO() {
+		if (dbi == null || dao == null) {
+			DataSource ds = JdbcConnectionPool.create("jdbc:h2:./youngagain:ya", "yadb", "thesuperdbpassword");
+			DBI dbi = new DBI(ds);
+			dao = dbi.open(TheDAO.class);
 		}
 
-		return c;
+		return dao;
 	}
-
-	public static void closeConnection() {
-		try {
-			c.close();
-		} catch (SQLException e) {}
-	}
+	
 }

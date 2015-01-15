@@ -6363,6 +6363,11 @@ button.close {
 	margin-right: 50px;
 }
 
-#gerer{
+.gerer{
   text-align: center;
+}
+
+.gestion{
+  margin-top : 50px;
+  text-align : center;
 }

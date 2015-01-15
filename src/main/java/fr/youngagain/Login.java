@@ -13,7 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.skife.jdbi.v2.sqlobject.SqlQuery;
+
 import fr.youngagain.utils.DBConnector;
+import fr.youngagain.utils.TheDAO;
 
 @WebServlet("/login")
 public class Login extends HttpServlet {
@@ -23,22 +26,23 @@ public class Login extends HttpServlet {
 		HttpSession session = req.getSession();
 		String login = req.getParameter("login");
 		String password = req.getParameter("paswd");
-		try {
-			Statement stm = DBConnector.getConnection().createStatement();
-			ResultSet rs = stm.executeQuery("SELECT * FROM user WHERE login='" + login +"' AND paswd ='" + password + "';");
-			if (rs.next()) {
-				if (rs.getString("role").equals("admin")) {
-					session.setAttribute("role", "admin");
-					res.sendRedirect("pageAdmin.html");
-				} else {
-					session.setAttribute("role", "user");
-					res.sendRedirect("pageAccueil.html");
-				}
+
+		TheDAO dao = DBConnector.getDAO();
+		String role = dao.getRoleByLoginPswd(login, password);
+
+		if (role != null) {
+			if (role.equals("admin")) {
+				session.setAttribute("role", "admin");
+				res.sendRedirect("pageAdmin.html");
 			} else {
-				res.sendRedirect("/index?bl=1");
+				session.setAttribute("role", "user");
+				session.setAttribute("login", login);
+				res.sendRedirect("/accueil");
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} else {
+			res.sendRedirect("/index?bl=1");
 		}
-	}
+}
+
+
 }

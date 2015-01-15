@@ -26,7 +26,7 @@ public class Index extends HttpServlet {
 		} else if (session.getAttribute("role").equals("admin")) {
 			res.sendRedirect("pageAdmin.html");
 		} else {
-			res.sendRedirect("pageAccueil.html");
+			res.sendRedirect("/accueil");
 		}
 
 	}
