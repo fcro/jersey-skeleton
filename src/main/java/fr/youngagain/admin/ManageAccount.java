@@ -7,11 +7,11 @@ import fr.youngagain.database.DBConnector;
 public class ManageAccount {
 
 	public static boolean createAccount(String nom, String prenom,
-			String login, String mdp) throws SQLException /*
+			String login, String mdp) /*
 														 * ,
 														 * LoginAlreadyUsedException
 														 */{
-		Connection con = null;
+		
 		if (!loginAlreadyUsed(login)) {
 
 			try {
@@ -22,12 +22,12 @@ public class ManageAccount {
 						+ nom + "\', \'" + prenom + "\', \'" + login + "\', \'"
 						+ mdp + "\')";
 				stmt.executeUpdate(query);
-				con.close();
+				
 
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
-				con.close();
+				DBConnector.closeConnection();
 			}
 		} else {
 			// throws new LoginAlreadyUsedException();
@@ -37,8 +37,8 @@ public class ManageAccount {
 		return true;
 	}
 
-	public static boolean loginAlreadyUsed(String login) throws SQLException {
-		Connection con = null;
+	public static boolean loginAlreadyUsed(String login) {
+		
 		boolean used = false;
 		try {
 
@@ -52,40 +52,40 @@ public class ManageAccount {
 					used = true;
 				}
 			}
-			con.close();
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		} finally {
-			con.close();
+			DBConnector.closeConnection();
 		}
 		return used;
 
 	}
 
-	public static boolean deleteAccount(String login) throws SQLException /*
+	public static boolean deleteAccount(String login)  /*
 																		 * ,
 																		 * AccountNotFoundException
 																		 */{
 
 		boolean deleted = false;
 		if (loginAlreadyUsed(login)) {
-			Connection con = null;
+			
 			try {
 
 				Statement stmt = DBConnector.getConnection().createStatement();
 
 				stmt.executeUpdate("delete from TABLE_DES_USERS wher login =\'"
 						+ login + "\'");
-				con.close();
+				
 				deleted = true;
 
 			} catch (Exception e) {
 				e.printStackTrace();
 				deleted = false;
 			} finally {
-				con.close();
+				DBConnector.closeConnection();
 			}
 		} else {
 			// throws new AccountNotFoundException();
@@ -94,9 +94,9 @@ public class ManageAccount {
 	}
 
 	public static boolean modifyPassword(String login, String newPassword,
-			String confirmNewPassword, String oldPassword) throws SQLException {
+			String confirmNewPassword, String oldPassword)  {
 		boolean changed = false;
-		Connection con = null;
+		
 		if (loginAlreadyUsed(login)) {
 			if (newPassword.equals(confirmNewPassword)) {
 				try {
@@ -109,13 +109,13 @@ public class ManageAccount {
 						update += "set mdp = " + newPassword
 								+ " where login = \'" + login + "\'";
 						stmt.executeUpdate(update);
-						con.close();
+						
 					}
 
 				} catch (Exception e) {
 					e.printStackTrace();
 				} finally {
-					con.close();
+					DBConnector.closeConnection();
 				}
 			}
 		} else {
@@ -125,9 +125,8 @@ public class ManageAccount {
 	}
 
 	public static boolean passwordIsCorrect(String login, String pwd)
-			throws SQLException {
-		Connection con = null;
-		boolean correct = false;
+			{
+				boolean correct = false;
 
 		try {
 
@@ -142,20 +141,20 @@ public class ManageAccount {
 				}
 			}
 
-			con.close();
+		
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			DBConnector.closeConnection();
 		}
 
 		return correct;
 
 	}
 
-	public static boolean blockAccount(String login) throws SQLException {
-		Connection con = null;
+	public static boolean blockAccount(String login)  {
+		
 		boolean blocked = true;
 		if (loginAlreadyUsed(login)) {
 			try {
@@ -163,21 +162,20 @@ public class ManageAccount {
 				String query = "UPDATE " /* TABLE_DES_USERS */
 						+ " SET blocked = true WHERE login = \'" + login + "\'";
 				stmt.executeUpdate(query);
-				con.close();
+			
 			} catch (Exception e) {
 				e.printStackTrace();
 				blocked = false;
 			} finally {
-				con.close();
-			}
+				DBConnector.closeConnection();			}
 		}
 
 		return blocked;
 	}
 	
-	public static boolean sendWarning(String login) throws SQLException{
+	public static boolean sendWarning(String login) {
 		boolean warned = true;
-		Connection con = null;
+		
 		if(loginAlreadyUsed(login)){
 			try{
 				
@@ -196,9 +194,9 @@ public class ManageAccount {
 			} catch (Exception e){
 				e.printStackTrace();
 				warned = false;
-				con.close();
+				
 			} finally {
-				con.close();
+				DBConnector.closeConnection();
 			}
 		}
 		return warned;
