@@ -17,4 +17,14 @@ public class PHProcks {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void includeWithTitle(PrintWriter out, String title) {
+		include(out, new File("./resources/includes/header.html"));
+		out.println(title);
+		include(out, new File("./resources/includes/navbar.html"));
+	}
+	
+	public static void includeFooter(PrintWriter out) {
+		include(out, new File("./resources/includes/footer.html"));
+	}
 }

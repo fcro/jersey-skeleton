@@ -25,6 +25,7 @@ public class Home extends HttpServlet {
 		PrintWriter out = res.getWriter();
 		if (session.getAttribute("login") == null)
 			res.sendRedirect("/index");
+		PHProcks.includeWithTitle(out, "Accueil");
 		PHProcks.include(out, new File("./resources/includes/home/pageAccueil.html"));
 		try {
 			TheDAO dao = DBConnector.getDAO();
@@ -36,10 +37,11 @@ public class Home extends HttpServlet {
 						+ bufDate.substring(2, 4) + '-' + bufDate.substring(4);
 				String text = dao.getNewsTxt();
 				out.println(title + "</h1><h2>" + date + "</h2><p>" + text
-						+ "</p></div></body></html>");
+						+ "</p></div></div>");
 			} else {
-				out.println("Bienvenue </h1><h2>13-01-1995</h2><p>Ceci est un texte mais pas le bon pour que ça marche</p></div></body></html>");
+				out.println("Bienvenue </h1><h2>13-01-1995</h2><p>Ceci est un texte mais pas le bon pour que ça marche</p></div></div></body></html>");
 			}
+			PHProcks.includeFooter(out);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

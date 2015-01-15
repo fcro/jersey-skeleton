@@ -25,6 +25,7 @@ public class Index extends HttpServlet {
 			PHProcks.include(out, new File("./resources/includes/index/index.html"));
 			if (req.getParameter("bl") != null)
 				out.println("<center><ul class=\"list-group\"><li class=\"list-group-item list-group-item-danger\">Erreur d'authentification</li></ul></center></body></html>");
+			PHProcks.includeFooter(out);
 		} else if (session.getAttribute("role").equals("admin")) {
 			res.sendRedirect("pageAdmin.html");
 		} else {
