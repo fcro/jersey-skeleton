@@ -36,7 +36,8 @@ public class Login extends HttpServlet {
 				res.sendRedirect("pageAdmin.html");
 			} else {
 				session.setAttribute("role", "user");
-				res.sendRedirect("pageAccueil.html");
+				session.setAttribute("login", login);
+				res.sendRedirect("/accueil");
 			}
 		} else {
 			res.sendRedirect("/index?bl=1");
