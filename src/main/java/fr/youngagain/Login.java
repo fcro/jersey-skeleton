@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.youngagain.database.DBConnector;
+import fr.youngagain.utils.DBConnector;
 
 @WebServlet("/login")
 public class Login extends HttpServlet {

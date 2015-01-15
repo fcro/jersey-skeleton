@@ -2,7 +2,7 @@ package fr.youngagain.admin;
 
 import java.sql.*;
 
-import fr.youngagain.database.DBConnector;
+import fr.youngagain.utils.DBConnector;
 
 public class ManageAccount {
 

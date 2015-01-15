@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.youngagain.database.InitDB;
+import fr.youngagain.utils.InitDB;
 
 @WebServlet("/Test")
 public class Test extends HttpServlet {
