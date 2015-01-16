@@ -29,8 +29,8 @@ public class PHProcks {
 	}
 	
 	public static void includePhoto(PrintWriter out, String path) {
-		include(out, new File("profil1.html"));
+		include(out, new File("./resources/includes/profil/profil1.html"));
 		out.println(path);
-		include(out, new File("profil2.html"));
+		include(out, new File("./resources/includes/profil/profil2.html"));
 	}
 }

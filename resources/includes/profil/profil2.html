@@ -6,78 +6,142 @@
       </div>
     </div>
   </div>
-  <section class="col-sm-7">
-          
-            <article class="col-sm-7">
-               <h3>Profil utilisateur</h3>
-			   <p> Modifier ici vos informations. <br>
-			   Les éléments cochés seront visibles à toute personne regardant votre profil.</p>
+  <section class="col-lg-8">
+          <form action="POST" action="/update">
+            <article class="col-lg-8">
+               <h3>Profil Utilisateur</h3>
+			   <p> Modifiez ici vos informations. <br></p>
+			   <br>
+			   <h3>Informations personnelles</h3>
             </article>
-			<div class="row">
+		
+		
+		<div class="row">
+			<div class="col-lg-8">
+		<ul class="list-group">
+  			 <li class="list-group-item">Jean</li>
+  			 <li class="list-group-item">Raymond</li>
+  			 <li class="list-group-item">13-01-1947</li>
+  			 <li class="list-group-item">27 La Chaume-au-cul-rond 58660  Coulanges-les-Nevers</li>
+ 		 </ul>
 			
-				<div class="col-lg-10">
-				<h4>Information personnelle</h4>
-				<div class="input-group">
-				<span class="input-group-addon">
-				<input type="checkbox" aria-label="...">
-				</span>
+		</div><!-- /.col-lg-6 -->
+		</div><!-- /.row -->
+		
+		<div class="row">
+			<div class="col-lg-8">
+				<h4>Sexe</h4>
+				<div class="radio">
+					<label>
+					<input type="radio" name="sexe" id="optionsRadios1" value="M" checked>
+					Masculin
+					</label>
+					</div>
+					<div class="radio">
+					<label>
+					<input type="radio" name="sexe" id="optionsRadios2" value="F" checked>
+					Feminin
+				</label>
+				</div>
+		</div><!-- /.col-lg-6 -->
+		</div><!-- /.row -->
+		<div class="row">
+			<div class="col-lg-8">
+				<h4>Fumeur</h4>
+				<div class="radio">
+					<label>
+					<input type="radio" name="fumeur" id="optionsRadios1" value="true">
+					Oui
+					</label>
+					</div>
+					<div class="radio">
+					<label>
+					<input type="radio" name="fumeur" id="optionsRadios2" value="false" checked>
+					Non
+				</label>
+				</div>
+		</div><!-- /.col-lg-6 -->
+		</div><!-- /.row -->
+		<br>
+		
+		<div class="row">
+			<div class="col-lg-8">
+		<h3><div>Criteres de voyage</3>
+		</div><!-- /.col-lg-6 -->
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-8">
+				<h4>Accepte des fumeurs</h4>
+				<div class="radio">
+					<label>
+					<input type="radio" name="acceptFumeur" id="optionsRadios1" value="true" >
+					Oui
+					</label>
+					</div>
+					<div class="radio">
+					<label>
+					<input type="radio" name="acceptFumeur" id="optionsRadios2" value="false" >
+					Non
+				</label>
+				</div>
+		</div><!-- /.col-lg-6 -->
+		</div><!-- /.row -->
+		
+		<div class="row">
+			<div class="col-lg-8">
+				<h4>Souhaitez vous partir avec:</h4>
+				<div class="radio">
+					<label>
+					<input type="radio" name="acceptSexe" id="optionsRadios1" value="M" >
+					Hommes
+					</label>
+					</div>
+					<div class="radio">
+					<label>
+					<input type="radio" name="acceptSexe" id="optionsRadios2" value="F" >
+					Femmes
+				</label>
+				</div>
+				<div class="radio">
+					<label>
+					<input type="radio" name="acceptSexe" id="optionsRadios2" value="T" >
+					Peu importe
+				</label>
+				</div>
+		</div><!-- /.col-lg-6 -->
+		</div><!-- /.row -->
+		
+		<div class="row">
+			<div class="col-lg-8">
+				<h4>Types d'activites souhaites:</h4>
+				<p>Faites glisser les indicateurs pour exprimer votre interet quant aux sujets proposes.</p>
+				<h4>Sport :</h4>
+				 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+				<input type="range" name="sport" min="0" max="5" value="0" step="1" onchange="showValue(this.value)" />
+				</div>
 				
-				<input type="text" class="form-control" placeholder="Nom d'utilisateur">
-				</div><!-- /input-group -->
-			</div><!-- /.col-lg-6 -->
-			<div class="row">
-			<div class="col-lg-10">
-			<p></p>
-			</div>
-			</div>
-			<div class="col-lg-10">
-				<div class="input-group">
-				<span class="input-group-addon">
-				<input type="checkbox" aria-label="...">
-			</span>
-			<input type="password" class="form-control" placeholder="Mot de passe">
-			</div><!-- /input-group -->
-		</div><!-- /.col-lg-6 -->
-		</div><!-- /.row -->
-		
-		<div class="row">
-			<div class="col-lg-10">
-			<p></p>
-			</div>
-			</div>
-			
-		<div class="row">
-			<div class="col-lg-10">
-		
-				<div class="input-group">
-				<span class="input-group-addon">
-				<input type="checkbox" aria-label="...">
-			</span>
-			<input type="text" class="form-control" placeholder="Mail">
-			</div><!-- /input-group -->
-		</div><!-- /.col-lg-6 -->
-		</div><!-- /.row -->
-		
-		<div class="row">
-			<div class="col-lg-10">
-			<p></p>
-			</div>
-			</div>
-			
-		<div class="row">
-			<div class="col-lg-10">
-		
-				<div class="input-group">
-				<span class="input-group-addon">
-				<input type="checkbox" aria-label="...">
-			</span>
-			<input type="text" class="form-control" placeholder="Adresse postal">
-			</div><!-- /input-group -->
-		</div><!-- /.col-lg-6 -->
-		</div><!-- /.row -->
-			<hr/>
-            
-        </section>
+				<h4>Culture :</h4>
+				 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+				<input type="range" name="culture" min="0" max="5" value="0" step="1" onchange="showValue(this.value)" />
+				</div>
+				
+				<h4>Musique :</h4>
+				 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+				<input type="range" name="musique" min="0" max="5" value="0" step="1" onchange="showValue(this.value)" />
+				</div>
+				
+				<h4>Cinema :</h4>
+				 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+				<input type="range" name="cinema" min="0" max="5" value="0" step="1" onchange="showValue(this.value)" />
+				</div>
+				<br>
+				<p><input class="btn btn-default" type="submit" role="button" value="Enregistrer"></p>
+		</form>
+		</section>
 		</div>
+			</div><!-- /input-group -->
+		</div><!-- /.col-lg-6 -->
 		</div>
-
+        
+		<br>
