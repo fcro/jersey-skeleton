@@ -54,6 +54,11 @@ public interface TheDAO {
 			":firstName, :lastName, 'user')")
 	void addUser(@Bind("login") String login, @Bind("paswd") String paswd, @Bind("firstName") String firstName,
 			@Bind("lastName") String lastName);
+	
+	@SqlUpdate("INSERT INTO USER(login, fumeur, sexe) VALUES(:login, :fumeur, :sexe);"
+				+"INSERT INTO  critereUser(login,acceptFumeur,acceptSexe,sport,culture,musique,cinema,typeDest) VALUES (:login,:acceptFumeur,:acceptSexe,:sport,:culture,:musique,:cinema,:typeDest")
+	void addCritere(@Bind("login") String login, @Bind("fumeur") Boolean fumeur, @Bind("sexe") String sexe,
+			@Bind("acceptFumeur") Boolean acceptFumeur,@Bind("acceptSexe") String acceptSexe,@Bind("sport") int sport, @Bind("culture") int culture, @Bind("musique") int musique, @Bind("cinema") int cinema, @Bind("typeDest") String typeDest);
 
 	@SqlUpdate("INSERT INTO user(login, firstName, lastName, paswd, role) " +
 			"VALUES('admin', 'admin', 'admin', 'superadmin', 'admin')")
