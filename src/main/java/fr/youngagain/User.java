@@ -39,5 +39,9 @@ public class User {
 		return c;
 	}
 	
+	public void setCriteres(Criteres c){
+		this.c = c;
+	}
+	
 	
 }

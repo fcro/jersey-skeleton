@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javassist.bytecode.Descriptor.Iterator;
+
 import fr.youngagain.utils.database.DBConnector;
 
 public class Matcher {
@@ -11,33 +13,16 @@ public class Matcher {
 	public static ArrayList<User> match(String login) throws SQLException {
 		ArrayList<User> listMatch = new ArrayList<>();
 
-		ResultSet rs = DBConnector.getDAO().getUserAndCriteresByLogin(login);
-
-		boolean acceptFumeur = rs.getBoolean("acceptFumeur");
-		char partirAvecSexe = rs.getString("acceptSexe").charAt(0);
-		int sport = rs.getInt("sport");
-		int culture = rs.getInt("culture");
-		int musique = rs.getInt("musique");
-		int cine = rs.getInt("cinema");
-		Criteres c = new Criteres(acceptFumeur, partirAvecSexe, sport, culture,
-				musique, cine);
-		User user1 = new User(rs.getString("login"), rs.getString("paswd"), rs
-				.getString("sexe").charAt(0), rs.getBoolean("fumeur"), c);
+		User user1 = DBConnector.getDAO().getUserByLogin(login);
+		Criteres c = DBConnector.getDAO().getCriteresByLogin(login);
+		user1.setCriteres(c);
 		User user2;
-
-		rs = DBConnector.getDAO().getUsersAndCriteresByNotLogin(login);
-
-		while (rs.next()) {
-			acceptFumeur = rs.getBoolean("acceptFumeur");
-			partirAvecSexe = rs.getString("acceptSexe").charAt(0);
-			sport = rs.getInt("sport");
-			culture = rs.getInt("culture");
-			musique = rs.getInt("musique");
-			cine = rs.getInt("cinema");
-			c = new Criteres(acceptFumeur, partirAvecSexe, sport, culture,
-					musique, cine);
-			user2 = new User(rs.getString("login"), rs.getString("paswd"), rs
-					.getString("sexe").charAt(0), rs.getBoolean("fumeur"), c);
+		
+		ArrayList<User> list = DBConnector.getDAO().getUserByNotLogin(login);
+		for(int i = 0; i < list.size();i++){
+			user2 = list.get(i);
+			user2.setCriteres(DBConnector.getDAO().getCriteresByLogin(user2.getLogin()));
+		
 
 			if (user1.getCriteres().isMatchable(user2)) {
 				if ((user2.getCriteres().acceptFumeur())

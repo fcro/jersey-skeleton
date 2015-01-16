@@ -1,10 +1,17 @@
 package fr.youngagain.utils.database;
 
+import java.awt.List;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
+import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
+import org.skife.jdbi.v2.tweak.BeanMapperFactory;
+
+import fr.youngagain.Criteres;
+import fr.youngagain.User;
 
 public interface TheDAO {
 	
@@ -75,8 +82,15 @@ public interface TheDAO {
 	@SqlQuery("SELECT role FROM USER WHERE login = :login AND paswd = :paswd")
 	String getRoleByLoginPswd(@Bind("login") String login, @Bind("paswd") String paswd);
 
-	@SqlQuery("SELECT login FROM USER WHERE login = :login")
-	String getUserByLogin(@Bind("login") String login);
+	@SqlQuery("SELECT * FROM USER WHERE login = :login")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	User getUserByLogin(@Bind("login") String login);
+	
+	@SqlQuery ("SELECT * FROM USER WHERE login <> :login")
+	ArrayList<User> getUserByNotLogin(@Bind("login") String login);
+	
+	@SqlQuery("SELECT * FROM CRITEREUSER WHERE login = :login")
+	Criteres getCriteresByLogin(@Bind("login") String login);
 
 	@SqlQuery("SELECT * FROM USER INNER JOIN CRITEREUSER " +
 			"WHERE USER.login = CRITEREUSER.login AND USER.login = :login")
