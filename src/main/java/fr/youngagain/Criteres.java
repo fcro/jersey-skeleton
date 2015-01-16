@@ -2,12 +2,13 @@ package fr.youngagain;
 
 public class Criteres {
 	private boolean acceptFumeur;
-	private int partirAvecSexe, sport, cine, musique, culture;
+	private int sport, cine, musique, culture;
+	private char partirAvecSexe;
 	/*
 	 * partirAvecSexe
-	 * 0= avec femmes uniquement
-	 * 1= avec hommes uniquement
-	 * 2= peu importe
+	 * f= avec femmes uniquement
+	 * h= avec hommes uniquement
+	 * t= peu importe
 	 * 
 	 * sport, cine, musique et culture : note de 1 à 5
 	 * 1= pas interressé
@@ -15,7 +16,7 @@ public class Criteres {
 	 *  
 	 */
 
-	public Criteres(boolean acceptFumeur, int partirAvecSexe, int sport,
+	public Criteres(boolean acceptFumeur, char partirAvecSexe, int sport,
 			int culture, int musique, int cine) {
 		this.acceptFumeur = acceptFumeur;
 		this.partirAvecSexe = partirAvecSexe;

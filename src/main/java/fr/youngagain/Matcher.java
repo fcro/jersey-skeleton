@@ -14,7 +14,7 @@ public class Matcher {
 		ResultSet rs = DBConnector.getDAO().getUserAndCriteresByLogin(login);
 
 		boolean acceptFumeur = rs.getBoolean("acceptFumeur");
-		int partirAvecSexe = rs.getInt("acceptSexe");
+		char partirAvecSexe = rs.getString("acceptSexe").charAt(0);
 		int sport = rs.getInt("sport");
 		int culture = rs.getInt("culture");
 		int musique = rs.getInt("musique");
@@ -29,7 +29,7 @@ public class Matcher {
 
 		while (rs.next()) {
 			acceptFumeur = rs.getBoolean("acceptFumeur");
-			partirAvecSexe = rs.getInt("acceptSexe");
+			partirAvecSexe = rs.getString("acceptSexe").charAt(0);
 			sport = rs.getInt("sport");
 			culture = rs.getInt("culture");
 			musique = rs.getInt("musique");
@@ -46,40 +46,40 @@ public class Matcher {
 								.getCriteres().acceptFumeur()))) {
 
 					if (user1.isMale()) {
-						if (user1.getCriteres().partirAvecSexe() == 1) {
+						if (user1.getCriteres().partirAvecSexe() == 'h') {
 							if (user2.isMale()
-									&& (user2.getCriteres().partirAvecSexe() == 1 || user2
-											.getCriteres().partirAvecSexe() == 2)) {
+									&& (user2.getCriteres().partirAvecSexe() == 'h' || user2
+											.getCriteres().partirAvecSexe() == 't')) {
 								listMatch.add(user2);
 							}
-						} else if (user1.getCriteres().partirAvecSexe() == 2) {
-							if (user2.getCriteres().partirAvecSexe() == 2) {
+						} else if (user1.getCriteres().partirAvecSexe() == 't') {
+							if (user2.getCriteres().partirAvecSexe() == 't') {
 								listMatch.add(user2);
 							}
-						} else if (user1.getCriteres().partirAvecSexe() == 0) {
+						} else if (user1.getCriteres().partirAvecSexe() == 'f') {
 							if (user2.isFemale()
-									&& (user2.getCriteres().partirAvecSexe() == 0 || user2
-											.getCriteres().partirAvecSexe() == 2)) {
+									&& (user2.getCriteres().partirAvecSexe() == 'f' || user2
+											.getCriteres().partirAvecSexe() == 't')) {
 								listMatch.add(user2);
 							}
 						}
 					}
 
 					if (user1.isFemale()) {
-						if (user1.getCriteres().partirAvecSexe() == 1) {
+						if (user1.getCriteres().partirAvecSexe() == 'h') {
 							if (user2.isMale()
-									&& (user2.getCriteres().partirAvecSexe() == 0 || user2
-											.getCriteres().partirAvecSexe() == 2)) {
+									&& (user2.getCriteres().partirAvecSexe() == 'f' || user2
+											.getCriteres().partirAvecSexe() == 't')) {
 								listMatch.add(user2);
 							}
-						} else if (user1.getCriteres().partirAvecSexe() == 2) {
-							if (user2.getCriteres().partirAvecSexe() == 2) {
+						} else if (user1.getCriteres().partirAvecSexe() == 't') {
+							if (user2.getCriteres().partirAvecSexe() == 't') {
 								listMatch.add(user2);
 							}
-						} else if (user1.getCriteres().partirAvecSexe() == 0) {
+						} else if (user1.getCriteres().partirAvecSexe() == 'f') {
 							if (user2.isFemale()
-									&& (user2.getCriteres().partirAvecSexe() == 1 || user2
-											.getCriteres().partirAvecSexe() == 2)) {
+									&& (user2.getCriteres().partirAvecSexe() == 'h' || user2
+											.getCriteres().partirAvecSexe() == 't')) {
 								listMatch.add(user2);
 							}
 						}
