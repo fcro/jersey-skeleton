@@ -3,6 +3,17 @@ package fr.youngagain;
 public class Criteres {
 	private boolean acceptFumeur;
 	private int partirAvecSexe, sport, cine, musique, culture;
+	/*
+	 * partirAvecSexe
+	 * 0= avec femmes uniquement
+	 * 1= avec hommes uniquement
+	 * 2= peu importe
+	 * 
+	 * sport, cine, musique et culture : note de 1 à 5
+	 * 1= pas interressé
+	 * 5= très interressé 
+	 *  
+	 */
 
 	public Criteres(boolean acceptFumeur, int partirAvecSexe, int sport,
 			int culture, int musique, int cine) {
