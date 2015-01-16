@@ -4045,7 +4045,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: 8px;
+  margin-top: 25px;
   margin-bottom: 8px;
 }
 @media (min-width: 768px) {
@@ -4182,6 +4182,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #777777;
 }
 .navbar-default .navbar-nav > li > a {
+  padding-top:35px;
+  font-size:16px;
   color: white;
   
 }
