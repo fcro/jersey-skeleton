@@ -1,4 +1,4 @@
-package fr.youngagain;
+package fr.youngagain.servlet.user;
 
 import java.io.File;
 import java.io.IOException;

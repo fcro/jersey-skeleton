@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import fr.youngagain.admin.News;
+import fr.youngagain.News;
 import fr.youngagain.admin.NewsPaper;
 
 public class NewsPaperTest {
