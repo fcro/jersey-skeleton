@@ -1,5 +1,6 @@
 package fr.youngagain.servlet.admin;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -18,11 +19,13 @@ public class Admin extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		HttpSession session = req.getSession();
-		PrintWriter out = res.getWriter();
-		if (session.getAttribute("login") == null)
+		HttpSession session = req.getSession(true);
+		if (session.getAttribute("role").equals("admin")) {
+			PrintWriter out = res.getWriter();
+			PHProcks.include(out, new File("resources/includes/admin/pageAdmin.html"));
+			PHProcks.includeFooter(out);
+		} else {
 			res.sendRedirect("/index");
-		PHProcks.includeFooter(out);
+		}
 	}
-
 }

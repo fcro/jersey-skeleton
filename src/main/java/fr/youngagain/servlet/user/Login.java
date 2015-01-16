@@ -26,7 +26,7 @@ public class Login extends HttpServlet {
 		if (role != null) {
 			if (role.equals("admin")) {
 				session.setAttribute("role", "admin");
-				res.sendRedirect("pageAdmin.html");
+				res.sendRedirect("/accueilAdmin");
 			} else {
 				session.setAttribute("role", "user");
 				session.setAttribute("login", login);

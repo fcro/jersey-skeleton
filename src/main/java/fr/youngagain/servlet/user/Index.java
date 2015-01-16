@@ -27,7 +27,7 @@ public class Index extends HttpServlet {
 				out.println("<center><ul class=\"list-group\"><li class=\"list-group-item list-group-item-danger\">Erreur d'authentification</li></ul></center></body></html>");
 			PHProcks.includeFooter(out);
 		} else if (session.getAttribute("role").equals("admin")) {
-			res.sendRedirect("pageAdmin.html");
+			res.sendRedirect("/accueilAdmin");
 		} else {
 			res.sendRedirect("/accueil");
 		}
