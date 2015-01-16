@@ -27,4 +27,10 @@ public class PHProcks {
 	public static void includeFooter(PrintWriter out) {
 		include(out, new File("./resources/includes/footer.html"));
 	}
+	
+	public static void includePhoto(PrintWriter out, String path) {
+		include(out, new File("profil1.html"));
+		out.println(path);
+		include(out, new File("profil2.html"));
+	}
 }
