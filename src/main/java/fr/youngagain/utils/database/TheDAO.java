@@ -97,5 +97,8 @@ public interface TheDAO {
 
 	@SqlQuery("SELECT text FROM news WHERE id=(SELECT MAX(id) FROM news)")
 	String getNewsTxt();
+	
+	@SqlUpdate("DROP ALL OBJECTS")
+	Integer refactor();
 
 }
