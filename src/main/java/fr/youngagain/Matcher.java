@@ -14,14 +14,14 @@ public class Matcher {
 		ResultSet rs = DBConnector.getDAO().getUserAndCriteresByLogin(login);
 
 		boolean acceptFumeur = rs.getBoolean("acceptFumeur");
-		int partirAvecSexe = rs.getInt("partirAvecSexe");
+		int partirAvecSexe = rs.getInt("acceptSexe");
 		int sport = rs.getInt("sport");
 		int culture = rs.getInt("culture");
 		int musique = rs.getInt("musique");
-		int cine = rs.getInt("cine");
+		int cine = rs.getInt("cinema");
 		Criteres c = new Criteres(acceptFumeur, partirAvecSexe, sport, culture,
 				musique, cine);
-		User user1 = new User(rs.getString("login"), rs.getString("mdp"), rs
+		User user1 = new User(rs.getString("login"), rs.getString("paswd"), rs
 				.getString("sexe").charAt(0), rs.getBoolean("fumeur"), c);
 		User user2;
 
@@ -29,14 +29,14 @@ public class Matcher {
 
 		while (rs.next()) {
 			acceptFumeur = rs.getBoolean("acceptFumeur");
-			partirAvecSexe = rs.getInt("partirAvecSexe");
+			partirAvecSexe = rs.getInt("acceptSexe");
 			sport = rs.getInt("sport");
 			culture = rs.getInt("culture");
 			musique = rs.getInt("musique");
-			cine = rs.getInt("cine");
+			cine = rs.getInt("cinema");
 			c = new Criteres(acceptFumeur, partirAvecSexe, sport, culture,
 					musique, cine);
-			user2 = new User(rs.getString("login"), rs.getString("mdp"), rs
+			user2 = new User(rs.getString("login"), rs.getString("paswd"), rs
 					.getString("sexe").charAt(0), rs.getBoolean("fumeur"), c);
 
 			if (user1.getCriteres().isMatchable(user2)) {

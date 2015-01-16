@@ -1,4 +1,4 @@
-package fr.youngagain.admin;
+package fr.youngagain;
 
 public class News {
 	private String titre;

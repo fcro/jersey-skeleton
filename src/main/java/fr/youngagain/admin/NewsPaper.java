@@ -5,6 +5,8 @@ import java.util.HashMap;
 
 import java.util.Map;
 
+import fr.youngagain.News;
+
 public class NewsPaper {
 	private Map <String,String> news = new HashMap <String,String>();
 	

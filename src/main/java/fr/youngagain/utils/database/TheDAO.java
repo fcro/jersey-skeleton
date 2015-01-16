@@ -54,15 +54,15 @@ public interface TheDAO {
 			":firstName, :lastName, 'user')")
 	void addUser(@Bind("login") String login, @Bind("paswd") String paswd, @Bind("firstName") String firstName,
 			@Bind("lastName") String lastName);
-	
+
 	@SqlUpdate("INSERT INTO user(login, firstName, lastName, paswd, role) " +
 			"VALUES('admin', 'admin', 'admin', 'superadmin', 'admin')")
 	void addAdmin();
-	
+
 	@SqlUpdate("INSERT INTO user(login, firstName, lastName, paswd, role) " +
 			"VALUES('moi', 'moi', 'moi', 'supermoi', 'user')")
 	void addMoi();
-	
+
 	@SqlUpdate("INSERT INTO news(title, date, text) VALUES('Bienvenue !', '16012015', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')")
 	void addNews();
 
@@ -80,15 +80,15 @@ public interface TheDAO {
 			"WHERE USER.login = CRITEREUSER.login and USER.login <> :login")
 	ResultSet getUsersAndCriteresByNotLogin(@Bind("login") String login);
 
-	@SqlQuery("SELECT path FROM USER WHERE login = :login")
+	@SqlQuery("SELECT photo FROM USER WHERE login = :login")
 	String getImageByLogin(@Bind("login") String login);
-	
+
 	@SqlQuery("SELECT title FROM news WHERE id=(SELECT MAX(id) FROM news)")
 	String getNewsTitle();
-	
+
 	@SqlQuery("SELECT date FROM news WHERE id=(SELECT MAX(id) FROM news)")
 	String getNewsDate();
-	
+
 	@SqlQuery("SELECT text FROM news WHERE id=(SELECT MAX(id) FROM news)")
 	String getNewsTxt();
 

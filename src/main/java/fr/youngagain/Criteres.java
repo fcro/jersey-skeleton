@@ -3,6 +3,17 @@ package fr.youngagain;
 public class Criteres {
 	private boolean acceptFumeur;
 	private int partirAvecSexe, sport, cine, musique, culture;
+	/*
+	 * partirAvecSexe
+	 * 0= avec femmes uniquement
+	 * 1= avec hommes uniquement
+	 * 2= peu importe
+	 * 
+	 * sport, cine, musique et culture : note de 1 à 5
+	 * 1= pas interressé
+	 * 5= très interressé 
+	 *  
+	 */
 
 	public Criteres(boolean acceptFumeur, int partirAvecSexe, int sport,
 			int culture, int musique, int cine) {
@@ -40,16 +51,16 @@ public class Criteres {
 
 	public boolean isMatchable(User u) {
 		boolean matchable = true;
-		if(sport - u.getCriteres().getSport() <= 3 || sport - u.getCriteres().getSport() >= -2){
+		if(!(sport - u.getCriteres().getSport() <= 3) || !(sport - u.getCriteres().getSport() >= -2)){
 			matchable = false;
 		}
-		if(cine - u.getCriteres().getCine() <= 3 || cine - u.getCriteres().getCine() >= -2){
+		if(!(cine - u.getCriteres().getCine() <= 3) || !(cine - u.getCriteres().getCine() >= -2)){
 			matchable = false;
 		}
-		if(musique - u.getCriteres().getMusique() <= 3 || musique - u.getCriteres().getMusique() >= -2){
+		if(!(musique - u.getCriteres().getMusique() <= 3) || !(musique - u.getCriteres().getMusique() >= -2)){
 			matchable = false;
 		}
-		if(culture - u.getCriteres().getCulture() <= 3 || culture - u.getCriteres().getCulture() >= -2){
+		if(!(culture - u.getCriteres().getCulture() <= 3) || !(culture - u.getCriteres().getCulture() >= -2)){
 			matchable = false;
 		}
 		return matchable;

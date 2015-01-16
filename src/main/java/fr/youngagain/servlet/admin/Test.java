@@ -1,4 +1,4 @@
-package fr.youngagain;
+package fr.youngagain.servlet.admin;
 
 import java.io.IOException;
 
