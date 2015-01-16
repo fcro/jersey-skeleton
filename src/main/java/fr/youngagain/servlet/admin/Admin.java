@@ -19,13 +19,12 @@ public class Admin extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		HttpSession session = req.getSession(true);
-		if (session.getAttribute("role").equals("admin")) {
-			PrintWriter out = res.getWriter();
-			PHProcks.include(out, new File("resources/includes/admin/pageAdmin.html"));
-			PHProcks.includeFooter(out);
-		} else {
+		HttpSession session = req.getSession();
+		if (session.getAttribute("login") == null)
 			res.sendRedirect("/index");
-		}
+		PrintWriter out = res.getWriter();
+		PHProcks.includeWithTitle(out, "Page d'Administration");
+		PHProcks.include(out, new File("./resources/includes/admin/pageAdmin.html"));
+		PHProcks.includeFooter(out);
 	}
 }

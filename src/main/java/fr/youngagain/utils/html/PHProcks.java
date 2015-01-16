@@ -24,6 +24,12 @@ public class PHProcks {
 		include(out, new File("./resources/includes/navbar.html"));
 	}
 	
+	public static void includeWithTitleAdmin(PrintWriter out, String title) {
+		include(out, new File("./resources/includes/header.html"));
+		out.println(title);
+		include(out, new File("./resources/includes/navbarAdmin.html"));
+	}
+	
 	public static void includeFooter(PrintWriter out) {
 		include(out, new File("./resources/includes/footer.html"));
 	}
