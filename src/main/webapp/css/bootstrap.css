@@ -4165,10 +4165,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  padding-top : 100px;
+  padding-top : 10px;
   padding-bottom: 10px;
   background-color: #2E2E2E;
   border-color: #e7e7e7;
+  font-size: 1.2em; 
 }
 .navbar-default .navbar-brand {
   color: white;
