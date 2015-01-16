@@ -1,23 +1,17 @@
 package fr.youngagain;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import fr.youngagain.utils.database.DBConnector;
 
 public class Matcher {
 
 	public static ArrayList<User> match(String login) throws SQLException {
 		ArrayList<User> listMatch = new ArrayList<>();
 
-		Connection con = null;
-
-		/**/
-
-		Statement stmt = con.createStatement();
-
-		String query = "select * from user inner join criteresUser where user.login == criteresUser.login and login = \'"
-				+ login + "\'";
-		ResultSet rs = stmt.executeQuery(query);
+		ResultSet rs = DBConnector.getDAO().getUserAndCriteresByLogin(login);
 
 		boolean acceptFumeur = rs.getBoolean("acceptFumeur");
 		int partirAvecSexe = rs.getInt("partirAvecSexe");
@@ -31,9 +25,7 @@ public class Matcher {
 				.getString("sexe").charAt(0), rs.getBoolean("fumeur"), c);
 		User user2;
 
-		query = "select * from user inner join criteresUser where user.login == criteresUser.login and login <> \'"
-				+ login + "\'";
-		rs = stmt.executeQuery(query);
+		rs = DBConnector.getDAO().getUsersAndCriteresByNotLogin(login);
 
 		while (rs.next()) {
 			acceptFumeur = rs.getBoolean("acceptFumeur");
