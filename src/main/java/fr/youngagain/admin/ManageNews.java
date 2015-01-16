@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.youngagain.News;
-@WebServlet ("/youngagain/manageNews")
+@WebServlet ("/manageNews")
 public class ManageNews extends HttpServlet {
 	private static NewsPaper news=new NewsPaper();
 	public void service(HttpServletRequest req, HttpServletResponse res)
@@ -24,6 +24,6 @@ public class ManageNews extends HttpServlet {
 		if(s.equals("up")){
 			news.update(new News());
 		}
-	res.sendRedirect("/youngagain/newsAdmin.html");
+	res.sendRedirect("newsAdmin.html");
 	}
 }

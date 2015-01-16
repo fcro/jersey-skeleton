@@ -15,7 +15,7 @@ import fr.youngagain.utils.database.DBConnector;
 import fr.youngagain.utils.database.TheDAO;
 import fr.youngagain.utils.html.PHProcks;
 
-@WebServlet("/youngagain/profil")
+@WebServlet("/profil")
 public class Profil extends HttpServlet {
 
 	@Override
@@ -25,7 +25,7 @@ public class Profil extends HttpServlet {
 		String login = session.getAttribute("login").toString();
 		TheDAO dao = DBConnector.getDAO();
 		if (session.getAttribute("login") == null)
-			res.sendRedirect("/youngagain/index");
+			res.sendRedirect("/index");
 		PrintWriter out = res.getWriter();
 		PHProcks.includeWithTitle(out, "Profil");
 		PHProcks.includePhoto(out, dao.getImageByLogin(login));

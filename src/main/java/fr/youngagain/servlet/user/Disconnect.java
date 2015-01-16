@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/youngagain/disconnect")
+@WebServlet("/disconnect")
 public class Disconnect extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		req.getSession().invalidate();
-		res.sendRedirect("/youngagain/index");
+		res.sendRedirect("/index");
 	}
 }

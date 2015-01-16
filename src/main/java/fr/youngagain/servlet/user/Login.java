@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import fr.youngagain.utils.database.DBConnector;
 import fr.youngagain.utils.database.TheDAO;
 
-@WebServlet("/youngagain/login")
+@WebServlet("/login")
 public class Login extends HttpServlet {
 
 	public void service(HttpServletRequest req, HttpServletResponse res)
@@ -26,14 +26,14 @@ public class Login extends HttpServlet {
 		if (role != null) {
 			if (role.equals("admin")) {
 				session.setAttribute("role", "admin");
-				res.sendRedirect("/youngagain/accueilAdmin");
+				res.sendRedirect("/accueilAdmin");
 			} else {
 				session.setAttribute("role", "user");
 				session.setAttribute("login", login);
-				res.sendRedirect("/youngagain/accueil");
+				res.sendRedirect("/accueil");
 			}
 		} else {
-			res.sendRedirect("/youngagain/index?bl=1");
+			res.sendRedirect("/index?bl=1");
 		}
 }
 

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import fr.youngagain.utils.html.PHProcks;
 
-@WebServlet("/youngagain/index")
+@WebServlet("/index")
 public class Index extends HttpServlet {
 
 	@Override
@@ -27,9 +27,9 @@ public class Index extends HttpServlet {
 				out.println("<center><ul class=\"list-group\"><li class=\"list-group-item list-group-item-danger\">Erreur d'authentification</li></ul></center></body></html>");
 			PHProcks.includeFooter(out);
 		} else if (session.getAttribute("role").equals("admin")) {
-			res.sendRedirect("/youngagain/accueilAdmin");
+			res.sendRedirect("/accueilAdmin");
 		} else {
-			res.sendRedirect("/youngagain/accueil");
+			res.sendRedirect("/accueil");
 		}
 
 	}

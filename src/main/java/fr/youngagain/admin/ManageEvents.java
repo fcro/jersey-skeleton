@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/youngagain/manageEvents")
+@WebServlet("/manageEvents")
 public class ManageEvents extends HttpServlet {
 
 	public void service(HttpServletRequest req, HttpServletResponse res)
