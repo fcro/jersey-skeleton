@@ -55,11 +55,12 @@ public interface TheDAO {
 	void addUser(@Bind("login") String login, @Bind("paswd") String paswd, @Bind("firstName") String firstName,
 			@Bind("lastName") String lastName);
 	
-	@SqlUpdate("UPDATE user SET fumeur=:fumeur, sexe=:sexe, photo=:photo WHERE login=:login;"
-				+"INSERT INTO  critereUser(login,acceptFumeur,acceptSexe,sport,culture,musique,cinema,typeDest) VALUES (:login,:acceptFumeur,:acceptSexe,:sport,:culture,:musique,:cinema,:typeDest")
-	void updateProfil(@Bind("login") String login, @Bind("fumeur") Boolean fumeur, @Bind("sexe") String sexe, @Bind("photo") String photo,
-			@Bind("acceptFumeur") Boolean acceptFumeur,@Bind("acceptSexe") String acceptSexe,@Bind("sport") int sport, @Bind("culture") int culture, @Bind("musique") int musique, @Bind("cinema") int cinema, @Bind("typeDest") String typeDest);
+	@SqlUpdate("INSERT INTO  critereUser(login,acceptFumeur,acceptSexe,sport,culture,musique,cinema,typeDest) VALUES (:login,:acceptFumeur,:acceptSexe,:sport,:culture,:musique,:cinema,:typeDest)")
+	void addCritere(@Bind("login") String login,@Bind("acceptFumeur") Boolean acceptFumeur,@Bind("acceptSexe") String acceptSexe,@Bind("sport") int sport, @Bind("culture") int culture, @Bind("musique") int musique, @Bind("cinema") int cinema, @Bind("typeDest") String typeDest);
 
+	@SqlUpdate("UPDATE user SET fumeur=:fumeur, sexe=:sexe, photo=:photo WHERE login=:login")
+	void updateProfil(@Bind("login") String login, @Bind("fumeur") Boolean fumeur, @Bind("sexe") String sexe, @Bind("photo") String photo);
+	
 	@SqlUpdate("INSERT INTO user(login, firstName, lastName, paswd, role) " +
 			"VALUES('admin', 'admin', 'admin', 'superadmin', 'admin')")
 	void addAdmin();
