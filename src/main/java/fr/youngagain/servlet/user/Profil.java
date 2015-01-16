@@ -1,5 +1,6 @@
 package fr.youngagain.servlet.user;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -28,6 +29,15 @@ public class Profil extends HttpServlet {
 		PrintWriter out = res.getWriter();
 		PHProcks.includeWithTitle(out, "Profil");
 		PHProcks.includePhoto(out, dao.getImageByLogin(login));
+		PHProcks.include(out, new File("./resources/includes/profil/profil3.html"));
+		out.println(dao.getUserByLogin(login).getNom());
+		PHProcks.include(out, new File("./resources/includes/profil/profil3.html"));
+		out.println(dao.getUserByLogin(login).getPrenom());
+		PHProcks.include(out, new File("./resources/includes/profil/profil3.html"));
+		out.println(dao.getUserByLogin(login).getDate());
+		PHProcks.include(out, new File("./resources/includes/profil/profil3.html"));
+		out.println(dao.getUserByLogin(login).getVille());
+		PHProcks.include(out, new File("./resources/includes/profil/profil4.html"));
 		PHProcks.includeFooter(out);
 	}
 }
