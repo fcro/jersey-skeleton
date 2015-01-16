@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import fr.youngagain.utils.html.PHProcks;
 
-@WebServlet("/messagerie")
+@WebServlet("/youngagain/messagerie")
 public class Messagerie extends HttpServlet {
 
 	@Override
@@ -21,7 +21,7 @@ public class Messagerie extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		if (session.getAttribute("login") == null)
-			res.sendRedirect("/index");
+			res.sendRedirect("/youngagain/index");
 		PrintWriter out = res.getWriter();
 		PHProcks.includeWithTitle(out, "Messagerie");
 		PHProcks.include(out, new File("./resources/includes/messagerie/messagerie.html"));

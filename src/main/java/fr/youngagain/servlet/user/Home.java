@@ -15,7 +15,7 @@ import fr.youngagain.utils.database.DBConnector;
 import fr.youngagain.utils.database.TheDAO;
 import fr.youngagain.utils.html.PHProcks;
 
-@WebServlet("/accueil")
+@WebServlet("/youngagain/accueil")
 public class Home extends HttpServlet {
 
 	@Override
@@ -24,7 +24,7 @@ public class Home extends HttpServlet {
 		HttpSession session = req.getSession();
 		PrintWriter out = res.getWriter();
 		if (session.getAttribute("login") == null)
-			res.sendRedirect("/index");
+			res.sendRedirect("/youngagain/index");
 		PHProcks.includeWithTitle(out, "Accueil");
 		PHProcks.include(out, new File("./resources/includes/home/pageAccueil.html"));
 		try {

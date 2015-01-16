@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.youngagain.utils.html.PHProcks;
 
-@WebServlet("/newsAdmin")
+@WebServlet("/youngagain/newsAdmin")
 public class NewsAdmin extends HttpServlet {
 
 	public void service(HttpServletRequest req, HttpServletResponse res)

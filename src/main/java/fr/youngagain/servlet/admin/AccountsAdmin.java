@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import fr.youngagain.utils.html.PHProcks;
 
-@WebServlet("/accountsAdmin")
+@WebServlet("/youngagain/accountsAdmin")
 public class AccountsAdmin extends HttpServlet {
 
 	@Override
@@ -21,7 +21,7 @@ public class AccountsAdmin extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = req.getSession(true);
 		if (!session.getAttribute("role").equals("admin"))
-			res.sendRedirect("/index");
+			res.sendRedirect("/youngagain/index");
 		res.setContentType("text/html");
 		PrintWriter out = res.getWriter();
 		PHProcks.includeWithTitleAdmin(out, "Page d'Administration");

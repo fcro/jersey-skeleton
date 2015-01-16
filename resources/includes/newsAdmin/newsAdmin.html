@@ -23,7 +23,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			  <ul class="nav navbar-nav">
-				<li class="accueil"><a href="pageAdmin.html">Accueil<span class="sr-only">(current)</span></a></li>
+				<li class="accueil"><a href="youngagain/pageAdmin.html">Accueil<span class="sr-only">(current)</span></a></li>
 			  </ul>
 			<!--<center><h1>Page d'Administration</h1></center>-->
             </div>
@@ -35,22 +35,22 @@
 		<div class="news">
 			<div class="news_txtArea">
 				<!-- TODO: modifier le lien d'action -->
-				<form method="post" action="/AGNEUGNEU">
+				<form method="post" action="/youngagain/AGNEUGNEU">
 					<p>
 						<textarea name="ameliorer" id="ameliorer" rows="8" cols="100">Ajouter news</textarea>
 					</p>
 				</form>
 			</div>
 			<div class="news_btn">
-				<form class="ajout" method="POST" action="/manageNews">
+				<form class="ajout" method="POST" action="/youngagain/manageNews">
 					<input type="hidden" name="act" value="add"/>
 					<input type="submit" class="btn btn-warning btn-lg btnNews" value="Ajouter"/>
 				</form>
-				<form class="ajout" method="POST" action="/manageNews">
+				<form class="ajout" method="POST" action="/youngagain/manageNews">
 					<input type="hidden" name="act" value="up"/>
 					<input type="submit" class="btn btn-warning btn-lg btnNews" value="Modifier"/>
 				</form>
-				<form class="ajout" method="POST" action="/manageNews">
+				<form class="ajout" method="POST" action="/youngagain/manageNews">
 					<input type="hidden" name="act" value="del"/>	
 					<input type="submit" class="btn btn-warning btn-lg btnNews" value="Supprimer"/>
 				</form>
