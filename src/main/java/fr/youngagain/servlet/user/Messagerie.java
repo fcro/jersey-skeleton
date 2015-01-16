@@ -20,11 +20,11 @@ public class Messagerie extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		HttpSession session = req.getSession();
-		PrintWriter out = res.getWriter();
 		if (session.getAttribute("login") == null)
 			res.sendRedirect("/index");
+		PrintWriter out = res.getWriter();
 		PHProcks.includeWithTitle(out, "Messagerie");
-		PHProcks.include(out, new File("./resources/includes/home/messagerie.html"));
+		PHProcks.include(out, new File("./resources/includes/messagerie/messagerie.html"));
 		PHProcks.includeFooter(out);
 	}
 
